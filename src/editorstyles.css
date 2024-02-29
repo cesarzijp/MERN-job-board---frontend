@@ -1,0 +1,47 @@
+.custom-html-styles li p,
+.custom-html-styles li {
+  margin: 0 !important;
+}
+
+.custom-html-styles * {
+  color: white !important;
+}
+
+.custom-html-styles h1,
+.custom-html-styles h2,
+.custom-html-styles h3,
+.custom-html-styles p,
+.custom-html-styles ul {
+  margin-top: 0 !important;
+  margin-bottom: 0.2em !important;
+}
+
+.editor button {
+  transition: all 0.4s ease;
+}
+
+.editor button.is-active {
+  background-color: hsl(221 39% 16% / 1);
+}
+
+.editor button.is-active:hover {
+  background-color: hsl(221 39% 22% / 1);
+}
+
+.editor button:hover {
+  background-color: hsl(221 39% 11% / 1);
+}
+
+.editor button {
+  padding: 2px 12px;
+  display: block;
+  border-radius: 6px;
+  border: 0px;
+}
+
+.tiptap.ProseMirror,
+.tiptap.ProseMirror-focused,
+.tiptap.ProseMirror-focused *,
+.tiptap.ProseMirror:focus {
+  outline: none !important;
+}
