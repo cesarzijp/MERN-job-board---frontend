@@ -16,8 +16,13 @@ function DeleteJobButton({ id, title }) {
     transition: Slide,
   };
 
+  const fetchUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_LOCALURL
+      : process.env.REACT_APP_LIVE_URL;
+
   const deleteJobHandler = async () => {
-    const job = await fetch(`http://localhost:4000/api/jobs/${id}`, {
+    const job = await fetch(`${fetchUrl}${id}`, {
       method: "DELETE",
     });
     console.log(job);

@@ -4,11 +4,17 @@ import JobListItem from "./JobListItem";
 function JobList() {
   const [jobsArray, setJobsArray] = useState([]);
 
+  const fetchUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_LOCALURL
+      : process.env.REACT_APP_LIVE_URL;
+
   useEffect(() => {
     const getJobs = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/jobs");
+        const res = await fetch(fetchUrl);
         const jobs = await res.json();
+        console.log(res);
         if (res.ok) {
           setJobsArray(jobs);
         } else {

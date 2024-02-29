@@ -12,6 +12,11 @@ function AddJob() {
   const extensions = [StarterKit];
   const navigate = useNavigate();
 
+  const fetchUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_LOCALURL
+      : process.env.REACT_APP_LIVE_URL;
+
   const [jobTitle, setJobTitle] = useState("");
   const [jobLocation, setJobLocation] = useState("");
   const [jobHours, setJobHours] = useState("");
@@ -64,7 +69,7 @@ function AddJob() {
           active: true,
           description: jobDescription,
         };
-        const job = await fetch(`http://localhost:4000/api/jobs`, {
+        const job = await fetch(fetchUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

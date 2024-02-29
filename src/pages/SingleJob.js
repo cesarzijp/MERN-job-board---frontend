@@ -6,10 +6,15 @@ function SingleJob() {
   const [jobData, setJobData] = useState(null);
   const { id } = useParams();
 
+  const fetchUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_LOCALURL
+      : process.env.REACT_APP_LIVE_URL;
+
   useEffect(() => {
     const getSingleJob = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/api/jobs/${id}`);
+        const res = await fetch(`${fetchUrl}${id}`);
         const job = await res.json();
         console.log(job);
         if (res.ok) {
