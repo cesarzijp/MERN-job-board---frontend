@@ -7,6 +7,7 @@ import SingleJob from "./pages/SingleJob";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./editorstyles.css";
+import "./index.css";
 
 function App() {
   return (

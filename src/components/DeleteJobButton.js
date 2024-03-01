@@ -35,7 +35,7 @@ function DeleteJobButton({ id, title }) {
   return (
     <button
       onClick={deleteJobHandler}
-      className='px-3 py-1.5 border-[1px] border-gray-800 rounded-md transition-all duration-300 hover:bg-gray-900  hover:border-gray-800'
+      className='px-3 py-1.5 border-[1px] border-gray-800 rounded-md transition-all duration-300 hover:bg-red-900 hover:text-red-200  hover:border-red-800'
     >
       Delete this job
     </button>

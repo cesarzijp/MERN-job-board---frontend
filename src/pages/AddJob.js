@@ -8,7 +8,7 @@ import EditorBar from "../components/EditorBar";
 
 function AddJob() {
   const content =
-    "<h1>Your job</h1><p>Please provide a describtion of your job</p>";
+    "<h1>Your job</h1><p>Please provide a description of your job</p>";
   const extensions = [StarterKit];
   const navigate = useNavigate();
 
