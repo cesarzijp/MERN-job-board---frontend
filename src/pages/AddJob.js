@@ -136,7 +136,7 @@ function AddJob() {
         </div>
         <div className='lg:flex w-full flex-col mt-2 mb-5 gap-0'>
           <label className='block text-sm text-gray-500 '>Description</label>
-          <div className='editor min-w-full  custom-html-styles w-full block prose text-white'>
+          <div className='editor min-w-full  custom-html-styles w-full max-w-full block prose text-white'>
             <EditorBar editor={editor} />
             <EditorContent
               className=' rounded-sm mt-2 w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'

@@ -2,9 +2,9 @@ import React from "react";
 
 function EditorBar({ editor }) {
   return (
-    <div>
+    <div className=' max-w-full'>
       {editor && (
-        <div className='flex w-full gap-2 text-sm text-gray-500'>
+        <div className='flex w-full max-w-full flex-wrap gap-2 text-sm text-gray-500'>
           <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
