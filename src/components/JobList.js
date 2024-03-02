@@ -104,6 +104,12 @@ function JobList() {
             <JobListItem job={job}></JobListItem>
           </motion.div>
         ))}
+        {!jobsArray && (
+          <p>
+            It can take up to 1 minute for the backend to wake up for the first
+            request
+          </p>
+        )}
       </AnimatePresence>
     </div>
   );
