@@ -1,7 +1,7 @@
 import { React, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, Slide } from "react-toastify";
-
+import FramerPageWrapper from "../components/FramerPageWrapper";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorBar from "../components/EditorBar";
@@ -95,62 +95,64 @@ function AddJob() {
   };
 
   return (
-    <div className='block w-full'>
-      <h1 className=' text-4xl mb-6'>Add job</h1>
+    <FramerPageWrapper>
+      <div className='block w-full'>
+        <h1 className=' text-4xl mb-6'>Add job</h1>
 
-      <div className='lg:flex w-full  gap-4'>
-        <div className='form_element w-full'>
-          <label className='block text-sm text-gray-500 '>Job title</label>
-          <input
-            className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
-            type='text'
-            value={jobTitle}
-            onChange={(e) => {
-              setJobTitle(e.target.value);
-            }}
-          />
+        <div className='lg:flex w-full  gap-4'>
+          <div className='form_element w-full'>
+            <label className='block text-sm text-gray-500 '>Job title</label>
+            <input
+              className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
+              type='text'
+              value={jobTitle}
+              onChange={(e) => {
+                setJobTitle(e.target.value);
+              }}
+            />
+          </div>
+          <div className='form_element w-full'>
+            <label className='block text-sm text-gray-500 '>Location</label>
+            <input
+              className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
+              type='text'
+              value={jobLocation}
+              onChange={(e) => {
+                setJobLocation(e.target.value);
+              }}
+            />
+          </div>
+          <div className='form_element w-full lg:w-2/3'>
+            <label className='block text-sm text-gray-500 '>Hours</label>
+            <input
+              className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
+              type='text'
+              value={jobHours}
+              onChange={(e) => {
+                setJobHours(e.target.value);
+              }}
+            />
+          </div>
         </div>
-        <div className='form_element w-full'>
-          <label className='block text-sm text-gray-500 '>Location</label>
-          <input
-            className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
-            type='text'
-            value={jobLocation}
-            onChange={(e) => {
-              setJobLocation(e.target.value);
-            }}
-          />
+        <div className='lg:flex w-full flex-col mt-2 mb-5 gap-0'>
+          <label className='block text-sm text-gray-500 '>Description</label>
+          <div className='editor min-w-full  custom-html-styles w-full block prose text-white'>
+            <EditorBar editor={editor} />
+            <EditorContent
+              className=' rounded-sm mt-2 w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
+              editor={editor}
+            ></EditorContent>
+          </div>
         </div>
-        <div className='form_element w-full lg:w-2/3'>
-          <label className='block text-sm text-gray-500 '>Hours</label>
-          <input
-            className=' rounded-sm w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
-            type='text'
-            value={jobHours}
-            onChange={(e) => {
-              setJobHours(e.target.value);
-            }}
-          />
-        </div>
+        <button
+          role='submit'
+          onClick={addJobToDb}
+          className='px-3 py-1.5 border-[1px] border-gray-800 rounded-md transition-all duration-300 hover:bg-gray-900  hover:border-gray-800'
+        >
+          Save job
+        </button>
       </div>
-      <div className='lg:flex w-full flex-col mt-2 mb-5 gap-0'>
-        <label className='block text-sm text-gray-500 '>Description</label>
-        <div className='editor min-w-full  custom-html-styles w-full block prose text-white'>
-          <EditorBar editor={editor} />
-          <EditorContent
-            className=' rounded-sm mt-2 w-full bg-gray-900 border-2 border-gray-800 px-2 py-1'
-            editor={editor}
-          ></EditorContent>
-        </div>
-      </div>
-      <button
-        role='submit'
-        onClick={addJobToDb}
-        className='px-3 py-1.5 border-[1px] border-gray-800 rounded-md transition-all duration-300 hover:bg-gray-900  hover:border-gray-800'
-      >
-        Save job
-      </button>
-    </div>
+    </FramerPageWrapper>
   );
 }
 

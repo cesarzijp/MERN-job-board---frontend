@@ -1,4 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import AddJob from "./pages/AddJob";
 import NavBar from "./components/NavBar";
@@ -16,11 +17,13 @@ function App() {
         <NavBar />
         <div className='pages block py-8'>
           <Container>
-            <Routes>
-              <Route path='/' element={<Home></Home>}></Route>
-              <Route path='/add' element={<AddJob></AddJob>}></Route>
-              <Route path='/jobs/:id' element={<SingleJob />}></Route>
-            </Routes>
+            <AnimatePresence>
+              <Routes>
+                <Route path='/' element={<Home></Home>}></Route>
+                <Route path='/add' element={<AddJob></AddJob>}></Route>
+                <Route path='/jobs/:id' element={<SingleJob />}></Route>
+              </Routes>
+            </AnimatePresence>
           </Container>
           <ToastContainer theme='dark' />
         </div>

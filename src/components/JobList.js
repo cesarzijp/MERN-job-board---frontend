@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
 import JobListItem from "./JobListItem";
 import JobFilter from "./JobFilter";
+import { motion, AnimatePresence } from "framer-motion";
 
 function JobList() {
   const [jobsArray, setJobsArray] = useState([]);
@@ -85,9 +86,25 @@ function JobList() {
   return (
     <div className=' w-full block border-b-[1px] mt-4 border-gray-800'>
       {copyOfJobsArray && <JobFilter jobs={copyOfJobsArray}></JobFilter>}
-      {jobsArray.map((job) => (
-        <JobListItem key={job._id} job={job}></JobListItem>
-      ))}
+      <AnimatePresence mode='wait'>
+        {jobsArray.map((job) => (
+          <motion.div
+            layout
+            key={job._id}
+            className='block w-full'
+            initial={{ opacity: 0, y: 50, scale: 1 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{
+              opacity: 0,
+              scale: 1,
+              y: 50,
+            }}
+            transition={{ duration: 0.25, ease: [0.54, 0.475, 0.005, 0.995] }}
+          >
+            <JobListItem job={job}></JobListItem>
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }
