@@ -15,7 +15,7 @@ function JobListItem(props) {
           <FiClock />
           <span>{props.job.hours}</span>
         </div>
-        <div className='flex custom-center items-center flex-row min-w-40 justify-end  '>
+        <div className='flex custom-center items-center flex-row lg:min-w-40 justify-end  '>
           <FiMapPin />
           <span>{props.job.location}</span>
         </div>
