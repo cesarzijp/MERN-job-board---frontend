@@ -1,6 +1,10 @@
 # Job board demo
 
-This is the front-end part of my React based job board. This job board shows data from a MongoDB database via a seperate Express backend. Users creats jobs and delete jobs and can use frontend filtering. There are also toast notifications for events (such as creating and deleting jobs) and filtering is animated with the Framer Motion package.
+This is the front-end part of my React based job board. This job board shows data from a MongoDB database via a seperate Express backend. Styling is handled by Tailwind.
+
+Users creats jobs and delete jobs and can use frontend filtering. There are also toast notifications for events (such as creating and deleting jobs) and filtering is animated with the Framer Motion package.
+
+Users can make use of a full rich text editor while adding new jobs.
 
 ## Available Scripts
 
